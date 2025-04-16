@@ -61,7 +61,7 @@ void gcost(float w1, float w2, float b, float *dw1, float *dw2, float* db)
         float x2 = or_train[i][1];
         float y = or_train[i][2];
         float ai = sigmoidf(w1*x1 + w2*x2 + b);
-        float di = (ai - y) * ai * (1 - ai);
+        float di = (ai - y) * ai * (1 - ai); // derivative of cost 
 
         *dw1 += di* x1;
         *dw2 += di * x2;
@@ -86,7 +86,7 @@ int main(void)
 
 
     printf("cost = %f \n", cost(w1, w2, b));
-    for (size_t i = 0; i < 100; i++)
+    for (size_t i = 0; i < 50*100; i++)
     {
         float dw1, dw2, db;
 
